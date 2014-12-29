@@ -4,14 +4,27 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
+    TextView labelGreet;
+    EditText inputGreet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void takeClick( View viewClick ){
+        inputGreet = (EditText) findViewById( R.id.editText );
+        labelGreet = (TextView) findViewById( R.id.textView );
+
+        String s = inputGreet.getText().toString();
+        labelGreet.setText(s);
     }
 
 

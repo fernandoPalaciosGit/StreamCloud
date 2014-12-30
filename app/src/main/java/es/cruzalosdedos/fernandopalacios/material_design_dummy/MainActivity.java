@@ -19,15 +19,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    public void takeClick( View viewClick ){
-        inputGreet = (EditText) findViewById( R.id.editText );
-        labelGreet = (TextView) findViewById( R.id.textView );
-
-        String s = inputGreet.getText().toString();
-        labelGreet.setText(s);
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary_dark">#004D40</color>
+    <!-- Teal 900 -->
+    <color name="primary">#00796B</color>
+    <!-- Teal 700 -->
+    <color name="accent">#FF4081</color>
+    <!-- Pink 200 -->
+    <color name="text_color">#fefefe</color>
+
+</resources>

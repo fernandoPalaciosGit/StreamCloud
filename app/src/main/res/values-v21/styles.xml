@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
@@ -9,10 +10,4 @@
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="android:colorAccent">@color/accent</item>
     </style>
-
-    <color name="primary_dark">#004D40</color><!-- Teal 900 -->
-    <color name="primary">#00796B</color><!-- Teal 700 -->
-    <color name="accent">#FF4081</color><!-- Pink 200 -->
-    <color name="text_color">#fefefe</color>
-
 </resources>

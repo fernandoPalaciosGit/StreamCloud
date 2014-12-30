@@ -1,4 +1,4 @@
-package es.cruzalosdedos.fernandopalacios.material_design_dummy;
+package es.cruzalosdedos.fernandopalacios.StreamSound;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

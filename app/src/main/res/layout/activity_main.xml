@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WelcomeStreamSound">
 
 
     <ImageView
@@ -37,13 +37,14 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/image_button_welcome"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:background="@drawable/ripple"
             android:scaleType="centerCrop"
+            android:elevation="4dp"
             android:src="@drawable/share_music_avatar_unknown" />
 
         <TextView

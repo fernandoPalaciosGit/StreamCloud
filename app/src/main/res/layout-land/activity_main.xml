@@ -44,6 +44,7 @@
             android:background="@drawable/ripple"
             android:scaleType="centerCrop"
             android:elevation="4dp"
+            android:onClick="loadMyMusic"
             android:src="@drawable/share_music_avatar_unknown" />
 
         <TextView

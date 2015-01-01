@@ -30,7 +30,7 @@ public class WelcomeStreamSound extends ActionBarActivity {
         }
 
         // crear sombras que simulen perspectivas sobre el eje z
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
 
@@ -46,10 +46,11 @@ public class WelcomeStreamSound extends ActionBarActivity {
             ImageButton welcomeBtn = (ImageButton) findViewById(R.id.image_button_welcome);
             welcomeBtn.setOutlineProvider(viewOutlineProvider);
             welcomeBtn.setClipToOutline(true);
-        }
+        }*/
+
     }
 
-    public void loadMyMusic( View view ){
+    public void loadMyMusic( View buttonWelcome ){
        Toast welcomeToast = Toast.makeText(getBaseContext(), "Acceso a la aplicación", Toast.LENGTH_SHORT );
        welcomeToast.show();
        
@@ -57,7 +58,12 @@ public class WelcomeStreamSound extends ActionBarActivity {
        startActivity(startMyMusic);
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

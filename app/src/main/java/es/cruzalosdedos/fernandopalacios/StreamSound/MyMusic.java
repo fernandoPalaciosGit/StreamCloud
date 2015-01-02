@@ -1,21 +1,31 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
 import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MyMusic extends Activity {
-
+public class MyMusic extends Activity implements ActionBar.TabListener {
+    private ActionBar actionBar;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_music);
-        
-        // customize action bar by tabs
-        ActionBar actionBar = getActionBar();
+
+        setToolbarTabs();
+    }
+
+    // customize action bar by tabs
+    private void setToolbarTabs(){
+        actionBar = getActionBar();
         actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_TABS );
+        actionBar.addTab( actionBar.newTab().setText("Musica").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("Amigos").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("Perfil").setTabListener(this));
+        
     }
 
 
@@ -39,5 +49,20 @@ public class MyMusic extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
     }
 }

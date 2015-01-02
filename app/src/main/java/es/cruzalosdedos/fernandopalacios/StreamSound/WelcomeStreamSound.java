@@ -48,6 +48,8 @@ public class WelcomeStreamSound extends ActionBarActivity {
             welcomeBtn.setClipToOutline(true);
         }*/
 
+
+
     }
 
     public void loadMyMusic( View buttonWelcome ){

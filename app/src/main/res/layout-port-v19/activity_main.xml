@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WelcomeStreamSound">
 
 
     <ImageView
@@ -51,6 +51,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/ripple"
             android:scaleType="centerCrop"
+            android:onClick="loadMyMusic"
             android:src="@drawable/share_music_avatar_unknown" />
 
         <TextView

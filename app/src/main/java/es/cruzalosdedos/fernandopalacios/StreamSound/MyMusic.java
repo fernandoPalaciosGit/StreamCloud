@@ -1,18 +1,21 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import es.cruzalosdedos.fernandopalacios.StreamSound.R;
-
-public class MyMusic extends ActionBarActivity {
+public class MyMusic extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_music);
+        
+        // customize action bar by tabs
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_TABS );
     }
 
 

@@ -11,5 +11,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/frag_destacados"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         />
+
+    <fragment
+        android:name="es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Amigos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frag_amigos"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/frag_destacados" />
+    
 </RelativeLayout>

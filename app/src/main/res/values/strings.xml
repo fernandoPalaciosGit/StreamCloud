@@ -7,6 +7,7 @@
     <string name="welcome_text_footer">Proyecto DAM - \'Programacion Multimedia\'</string>
     <string name="title_activity_my_music">MyMusic</string>
     <string name="mymusic_text">All my Music</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="destacados_title_fragment">Mi musica Preferida</string>
+    <string name="amigos_title_fragment">Musica Compartida</string>
 
 </resources>

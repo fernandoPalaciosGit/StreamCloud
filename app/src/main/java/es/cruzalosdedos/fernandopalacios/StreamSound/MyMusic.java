@@ -44,9 +44,9 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
     private void setToolbarTabs(){
         actionBar = getActionBar();
         actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_TABS );
-        actionBar.addTab( actionBar.newTab().setText("Musica").setTabListener(this));
-        actionBar.addTab( actionBar.newTab().setText("FragmentFriend").setTabListener(this));
-        actionBar.addTab( actionBar.newTab().setText("Perfil").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("Music").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("Friends").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("Profile").setTabListener(this));
     }
 
 

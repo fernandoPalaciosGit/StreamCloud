@@ -9,14 +9,14 @@ import android.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Amigos;
-import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Destacados;
-import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Profile;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentFriend;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentBestSong;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentProfile;
 
 public class MyMusic extends Activity implements ActionBar.TabListener {
     private ActionBar actionBar;
     private Fragment[] toolbarFragment = new Fragment[]{
-        new Destacados(), new Amigos(), new Profile()
+        new FragmentBestSong(), new FragmentFriend(), new FragmentProfile()
     };
     
     @Override
@@ -45,7 +45,7 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
         actionBar = getActionBar();
         actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_TABS );
         actionBar.addTab( actionBar.newTab().setText("Musica").setTabListener(this));
-        actionBar.addTab( actionBar.newTab().setText("Amigos").setTabListener(this));
+        actionBar.addTab( actionBar.newTab().setText("FragmentFriend").setTabListener(this));
         actionBar.addTab( actionBar.newTab().setText("Perfil").setTabListener(this));
     }
 

@@ -2,6 +2,7 @@ package es.cruzalosdedos.fernandopalacios.StreamSound.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,25 +16,37 @@ import es.cruzalosdedos.fernandopalacios.StreamSound.models.ModelFriend;
  * Created by Fernando Palacios on 03/01/2015.
  */
 public class AdapterFriend extends RecyclerView.Adapter<AdapterFriend.ViewHolder>{
-    private ArrayList<ModelFriend> myFriends;
+    private ArrayList<ModelFriend> myFriend;
     private int itemLayout;
-
+    
+    public AdapterFriend( ArrayList<ModelFriend> myFriend, int itemLayout ){
+        this.itemLayout = itemLayout;
+        this.myFriend = myFriend;
+    }
+    
     @Override
+    // como se carga la vista de cardViews de manera dinamica
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return null;
+        View v = LayoutInflater.from( viewGroup.getContext() ).inflate( itemLayout, viewGroup, false);
+        return new ViewHolder(v);
     }
 
     @Override
+    // configuracion de RecycleView
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-
+        ModelFriend friendBinded = myFriend.get(i); // obtener la carta seleccionada
+        viewHolder.nameFriend.setText( friendBinded.getName() );
+        viewHolder.twitterFriend.setText( friendBinded.getTwitter() );
+        viewHolder.lastSongFriend.setText( friendBinded.getLastSong() );
     }
 
     @Override
+    // obtener el numero de cardViews de amigos
     public int getItemCount() {
-        return 0;
+        return myFriend.size();
     }
 
-    // lase que comparten todos los items de Recycleview
+    // Crear una vista de caratas, esta clase la comparten todos los items de Recycleview
     public static class ViewHolder extends RecyclerView.ViewHolder{
         
         // declaramos los elementos de la vista de cartas

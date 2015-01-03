@@ -9,6 +9,6 @@
     <string name="mymusic_text">All my Music</string>
     <string name="destacados_title_fragment">Mi musica Preferida</string>
     <string name="amigos_title_fragment">Musica Compartida</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profie_title_fragment">Configuración</string>
 
 </resources>

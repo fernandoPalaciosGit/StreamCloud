@@ -1,14 +1,23 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Amigos;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Destacados;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.Profile;
+
 public class MyMusic extends Activity implements ActionBar.TabListener {
     private ActionBar actionBar;
+    private Fragment[] toolbarFragment = new Fragment[]{
+        new Destacados(), new Amigos(), new Profile()
+    };
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +25,19 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
         setContentView(R.layout.activity_my_music);
 
         setToolbarTabs();
+        setToolbarFragments();
+    }
+    
+    // populate all content fragments and load first tab
+    private void setToolbarFragments() {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction managerTransaction = manager.beginTransaction();
+
+        for ( Fragment fragment : toolbarFragment ){
+            managerTransaction.add( R.id.activity_my_music, fragment).hide(fragment);
+        }
+
+        managerTransaction.show( toolbarFragment[0] ).commit();
     }
 
     // customize action bar by tabs
@@ -25,7 +47,6 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
         actionBar.addTab( actionBar.newTab().setText("Musica").setTabListener(this));
         actionBar.addTab( actionBar.newTab().setText("Amigos").setTabListener(this));
         actionBar.addTab( actionBar.newTab().setText("Perfil").setTabListener(this));
-        
     }
 
 
@@ -53,7 +74,12 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        // cerrar todos los fragments y mostrar el seleccionado
+        for ( Fragment fragment : toolbarFragment ){
+            ft.hide(fragment);
+        }
 
+        ft.show( toolbarFragment[tab.getPosition()] );
     }
 
     @Override

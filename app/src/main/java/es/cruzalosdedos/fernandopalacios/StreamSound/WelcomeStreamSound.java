@@ -1,17 +1,19 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
+/*
 import android.annotation.TargetApi;
-import android.content.Intent;
+import android.view.ViewOutlineProvider;
+import android.widget.ImageButton;
 import android.graphics.Outline;
 import android.os.Build;
+*/
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewOutlineProvider;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -30,7 +32,7 @@ public class WelcomeStreamSound extends ActionBarActivity {
         }
 
         // crear sombras que simulen perspectivas sobre el eje z
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
 
@@ -38,7 +40,6 @@ public class WelcomeStreamSound extends ActionBarActivity {
                 @Override
                 public void getOutline(View view, Outline outline) {
                     int tabSize = getResources().getDimensionPixelSize(R.dimen.fab_size);
-                    outline = new Outline();
                     outline.setOval(0, 0, tabSize, tabSize);
                 }
             };
@@ -47,8 +48,6 @@ public class WelcomeStreamSound extends ActionBarActivity {
             welcomeBtn.setOutlineProvider(viewOutlineProvider);
             welcomeBtn.setClipToOutline(true);
         }*/
-
-
 
     }
 

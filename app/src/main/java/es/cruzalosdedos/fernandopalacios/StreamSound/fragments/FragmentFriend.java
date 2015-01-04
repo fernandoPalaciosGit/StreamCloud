@@ -32,7 +32,8 @@ public class FragmentFriend extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        
+        // DATASET QUE RECIBIRA EL ADAPTER
         ArrayList<ModelFriend> myFriends = new ArrayList<ModelFriend>();
         
         // create estatic data friends : DATASET

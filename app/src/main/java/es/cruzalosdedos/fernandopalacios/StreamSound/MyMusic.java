@@ -1,13 +1,20 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.graphics.Outline;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewOutlineProvider;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentFriend;
 import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentBestSong;
@@ -26,8 +33,41 @@ public class MyMusic extends Activity implements ActionBar.TabListener {
 
         setToolbarTabs();
         setToolbarFragments();
+        setFABLoadMyMusic();
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void imgBtnSahadowFAB( ImageButton imgBtn, final int resShadowSize){
+        ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
+
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setOval(0, 0, resShadowSize, resShadowSize);
+            }
+        };
+        imgBtn.setOutlineProvider(viewOutlineProvider);
+        imgBtn.setClipToOutline(true);
     }
     
+    private void setFABLoadMyMusic() {
+        ImageButton loadMyMusicFab = (ImageButton) findViewById(R.id.load_my_music_fab);
+        
+        // FAB to access Friend Prefference
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int tabSize = getResources().getDimensionPixelSize(R.dimen.fab_size);
+            imgBtnSahadowFAB(loadMyMusicFab, tabSize);
+        }
+
+        loadMyMusicFab.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText( v.getContext(), "¡ Go My Music !", Toast.LENGTH_SHORT).show();
+            }
+        } );
+
+    }
+
     // populate all content fragments and load first tab
     private void setToolbarFragments() {
         FragmentManager manager = getFragmentManager();

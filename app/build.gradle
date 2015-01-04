@@ -39,4 +39,7 @@ dependencies {
 
     //Libreria para volver circular una Imagen
     compile 'de.hdodenhof:circleimageview:1.2.1'
+    
+    // FAB
+    compile 'com.shamanland:fab:0.0.6'
 }

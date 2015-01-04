@@ -8,4 +8,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="header_landing_size">30dip</dimen>
     <dimen name="footer_landing_size">15dip</dimen>
+    
+    <!-- FAB -->
+    <dimen name="button_press_elevation">4dip</dimen>
+    <dimen name="button_elevation">2dip</dimen>
+    
 </resources>

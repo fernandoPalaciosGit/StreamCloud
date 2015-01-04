@@ -8,6 +8,12 @@
         <item name="android:colorAccent">@color/accent</item>
     </style>
     -->
-    <style name="AppTheme" parent="AppTheme.Base"></style>
-    
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="floatingActionButtonStyle">@style/AppTheme.Fab</item>
+    </style>
+
+    <style name="AppTheme.Fab" parent="FloatingActionButton">
+        <item name="floatingActionButtonColor">@color/backgroun_access_shape</item>
+    </style>
+
 </resources>

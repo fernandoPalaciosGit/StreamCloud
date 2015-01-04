@@ -3,7 +3,7 @@ package es.cruzalosdedos.fernandopalacios.StreamSound.models;
 /**
  * Created by Fernando Palacios on 04/01/2015.
  */
-public class Song {
+public class ModelSong {
     private String songName;
     private String songArtist;
     private int stars;

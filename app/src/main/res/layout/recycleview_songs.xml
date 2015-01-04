@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:layout_width="match_parent" android:layout_height="150dp"
+    >
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/avatar_songs"
+        android:src="@drawable/avatar_song"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/name_song"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/avatar_songs" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/name_artist"
+        android:layout_below="@+id/name_song"
+        android:layout_toEndOf="@+id/avatar_songs" />
+
+    <RatingBar
+        android:numStars="4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_alignBottom="@+id/avatar_songs"
+        android:layout_toEndOf="@+id/avatar_songs" />
+
+</RelativeLayout>

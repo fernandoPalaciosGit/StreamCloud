@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import es.cruzalosdedos.fernandopalacios.StreamSound.R;
 
-public class FragmentBestSong extends Fragment {
+public class FragmentSong extends Fragment {
 
-    public FragmentBestSong() {
+    public FragmentSong() {
 
     }
 

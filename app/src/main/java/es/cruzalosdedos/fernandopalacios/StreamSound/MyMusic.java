@@ -17,13 +17,13 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentFriend;
-import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentBestSong;
+import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentSong;
 import es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentProfile;
 
 public class MyMusic extends Activity implements ActionBar.TabListener {
     private ActionBar actionBar;
     private Fragment[] toolbarFragment = new Fragment[]{
-        new FragmentBestSong(), new FragmentFriend(), new FragmentProfile()
+        new FragmentSong(), new FragmentFriend(), new FragmentProfile()
     };
     
     @Override

@@ -3,14 +3,11 @@
     android:layout_height="match_parent"
     tools:context="es.cruzalosdedos.fernandopalacios.StreamSound.fragments.FragmentSong">
 
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/destacados_title_fragment" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/lifestyle_couple_beach_lg"
-        android:layout_gravity="left|top" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/songs_recycleview"/>
 
 
 </FrameLayout>

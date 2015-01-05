@@ -1,13 +1,25 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound.fragments;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -18,35 +30,81 @@ import es.cruzalosdedos.fernandopalacios.StreamSound.models.ModelFriend;
 import es.cruzalosdedos.fernandopalacios.StreamSound.models.ModelSong;
 
 public class FragmentSong extends Fragment {
-
-    public FragmentSong() {
-
-    }
+    // DATASET SONGS : volley Api
+    private ArrayList<ModelSong> mySongs;
+    private View viewActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_destacados, container, false);
+        viewActivity = inflater.inflate(R.layout.fragment_destacados, container, false);
+        return viewActivity;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+           
+        // API HTTP DATA (VOLLEY)
+        String URL = "https://script.google.com/macros/s/AKfycbxYMVeK_mfrW0vZs7z6BsrHLSuFcB8H4L7bcYaoqo4AumyXOdw/exec";
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        final ProgressDialog progressWidget = ProgressDialog.show(getActivity(),"Espere por favor","estamos atendiendo su solocitud");
+           
+        // On success API request
+        JsonArrayRequest req = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                // Log.i("Success Volley", response.toString());
+                try {
+                    mySongs = parserApiSongs( response );
+                    loadApiSongs(mySongs);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                progressWidget.cancel();
+            }
+            
+        // On Error API request
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error Volley", error.toString());
+                progressWidget.cancel();
+            }
+        });
+        
+        queue.add(req);
+    }
 
-        ArrayList<ModelSong> mySongs = new ArrayList<ModelSong>();
+    private void loadApiSongs(ArrayList<ModelSong> mySongs) {
         
-        // STATIC DATA
-        ModelSong song1 = new ModelSong();
-        song1.setSongArtist("Richie Hawtin");
-        song1.setSongName("Loosing Control");
-        song1.setStars( 3 );
-        mySongs.add( song1 );
-        
-        RecyclerView recyclerView = (RecyclerView) getActivity().findViewById( R.id.songs_recycleview);
+        /*View view = LayoutInflater.from( container.getContext() ).inflate( R.layout.fragment_destacados, container, false );
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.songs_recycleview);*/
+
+        // RecyclerView recyclerView = (RecyclerView) getActivity().findViewById( R.id.songs_recycleview);
+
+        RecyclerView recyclerView = (RecyclerView) viewActivity.findViewById( R.id.songs_recycleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter( new SongAdapter( mySongs, R.layout.recycleview_songs) );
         recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ));
         recyclerView.setItemAnimator( new DefaultItemAnimator() );
+    }
+
+    public ArrayList<ModelSong> parserApiSongs( JSONArray apiSongs ) throws JSONException{
+        ArrayList<ModelSong> auxSongs = new ArrayList<ModelSong>();
+        
+        for (int i = 0, len = apiSongs.length(); i < len ; i++ ){
+            ModelSong song = new ModelSong();
+            JSONObject jsonObj = (JSONObject) apiSongs.get(i);
+
+            song.setSongArtist( jsonObj.getString("cancion") );
+            song.setSongName( jsonObj.getString("artista") );
+            song.setStars( jsonObj.getInt("estrellas") );
+
+            auxSongs.add(song);
+        }
+        
+        return auxSongs;
     }
 }

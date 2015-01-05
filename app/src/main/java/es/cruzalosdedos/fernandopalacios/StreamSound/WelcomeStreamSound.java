@@ -16,6 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.parse.Parse;
+import com.parse.PushService;
+
 
 public class WelcomeStreamSound extends ActionBarActivity {
 
@@ -23,6 +26,10 @@ public class WelcomeStreamSound extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initialize Parse Lib
+        Parse.initialize(this, "Vt4gXqAOIYYMiGyczIjJuM91sdDu8i9NPmsVm0Gv", "Q6TwVf1xEOBRqCFZNEq3iNqcMhpwAcC5W8uPa6Bo");
+        PushService.setDefaultPushCallback(this, WelcomeStreamSound.class);
 
          // toolbar Material compatibility support
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

@@ -42,4 +42,10 @@ dependencies {
     
     // FAB
     compile 'com.shamanland:fab:0.0.6'
+    
+    // RESTFULL API
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+    
+    // PARSE : notifications and database
+    compile files('libs/parse/Parse-1.8.0.jar')
 }

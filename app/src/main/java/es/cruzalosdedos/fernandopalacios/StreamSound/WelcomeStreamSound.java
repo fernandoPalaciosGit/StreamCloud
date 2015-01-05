@@ -37,8 +37,15 @@ public class WelcomeStreamSound extends ActionBarActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
+        
         // crear sombras que simulen perspectivas sobre el eje z
+        ImageButton welcomeBtnFb = (ImageButton) findViewById(R.id.image_button_welcome_facebook);
+        ImageButton welcomeBtnGo = (ImageButton) findViewById(R.id.image_button_welcome_google);
+        setFabAccessApp(welcomeBtnFb);
+        setFabAccessApp(welcomeBtnGo);
+    }
+
+    private void setFabAccessApp(ImageButton btnAccess) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
@@ -47,15 +54,13 @@ public class WelcomeStreamSound extends ActionBarActivity {
                 @Override
                 public void getOutline(View view, Outline outline) {
                     int fabSize = getResources().getDimensionPixelSize(R.dimen.fab_size_wellcome);
-                    outline.setOval(0, 0, fabSize, fabSize);
+                    outline.setOval(0, 0, (fabSize+5), (fabSize+5));
                 }
             };
 
-            ImageButton welcomeBtn = (ImageButton) findViewById(R.id.image_button_welcome);
-            welcomeBtn.setOutlineProvider(viewOutlineProvider);
-            welcomeBtn.setClipToOutline(true);
+            btnAccess.setOutlineProvider(viewOutlineProvider);
+            btnAccess.setClipToOutline(true);
         }
-
     }
 
     public void loadMyMusic( View buttonWelcome ){

@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="160dp"
         android:gravity="center_horizontal"
         android:text="@string/welcome_text"
         android:textAlignment="center"
@@ -35,34 +35,65 @@
         android:textColor="@color/text_color" />
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_marginTop="35dp"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/welcome_text_footer">
 
         <ImageButton
-            android:id="@+id/image_button_welcome"
+            android:id="@+id/image_button_welcome_facebook"
             android:layout_width="@dimen/fab_size_wellcome"
             android:layout_height="@dimen/fab_size_wellcome"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/ripple_act_main"
             android:scaleType="centerCrop"
-            android:elevation="4dp"
+            android:elevation="5dp"
             android:onClick="loadMyMusic"
-            android:src="@drawable/share_music_avatar_unknown" />
+            android:layout_marginRight="10dp"
+            android:src="@drawable/facebook" />
 
-        <TextView
-            android:id="@+id/welcome_text_footer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/image_button_welcome_google"
+            android:layout_width="@dimen/fab_size_wellcome"
+            android:layout_height="@dimen/fab_size_wellcome"
             android:layout_gravity="center_horizontal"
-            android:text="@string/welcome_text_footer"
-            android:textColor="@color/text_color" />
+            android:background="@drawable/ripple_act_main"
+            android:scaleType="centerCrop"
+            android:elevation="5dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="loadMyMusic"
+            android:src="@drawable/google" />
+
+        <!--<com.shamanland.fab.FloatingActionButton
+            android:id="@+id/image_button_welcome"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/share_music_avatar_unknown"
+            android:elevation="5dp"
+            android:scaleType="fitCenter"
+            app:floatingActionButtonColor="@color/my_fab_color"
+            app:floatingActionButtonSize="mini"
+            android:onClick="loadMyMusic"/>-->
+
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/welcome_text_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/welcome_text_footer"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/footer_landing_size"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

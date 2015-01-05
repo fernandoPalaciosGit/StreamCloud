@@ -44,13 +44,14 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/image_button_welcome"
+            android:layout_width="@dimen/fab_size_wellcome"
+            android:layout_height="@dimen/fab_size_wellcome"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/ripple"
+            android:background="@drawable/ripple_act_main"
             android:scaleType="centerCrop"
+            android:elevation="4dp"
             android:onClick="loadMyMusic"
             android:src="@drawable/share_music_avatar_unknown" />
 

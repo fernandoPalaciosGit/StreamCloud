@@ -1,12 +1,10 @@
 package es.cruzalosdedos.fernandopalacios.StreamSound;
 
-/*
 import android.annotation.TargetApi;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.graphics.Outline;
 import android.os.Build;
-*/
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 import com.parse.PushService;
 
 
@@ -30,6 +29,7 @@ public class WelcomeStreamSound extends ActionBarActivity {
         // initialize Parse Lib
         Parse.initialize(this, "Vt4gXqAOIYYMiGyczIjJuM91sdDu8i9NPmsVm0Gv", "Q6TwVf1xEOBRqCFZNEq3iNqcMhpwAcC5W8uPa6Bo");
         PushService.setDefaultPushCallback(this, WelcomeStreamSound.class);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
 
          // toolbar Material compatibility support
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -39,22 +39,22 @@ public class WelcomeStreamSound extends ActionBarActivity {
         }
 
         // crear sombras que simulen perspectivas sobre el eje z
-/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
 
                 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                 @Override
                 public void getOutline(View view, Outline outline) {
-                    int tabSize = getResources().getDimensionPixelSize(R.dimen.fab_size);
-                    outline.setOval(0, 0, tabSize, tabSize);
+                    int fabSize = getResources().getDimensionPixelSize(R.dimen.fab_size_wellcome);
+                    outline.setOval(0, 0, fabSize, fabSize);
                 }
             };
 
             ImageButton welcomeBtn = (ImageButton) findViewById(R.id.image_button_welcome);
             welcomeBtn.setOutlineProvider(viewOutlineProvider);
             welcomeBtn.setClipToOutline(true);
-        }*/
+        }
 
     }
 

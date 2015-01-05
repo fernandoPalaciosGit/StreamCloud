@@ -24,24 +24,28 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import es.cruzalosdedos.fernandopalacios.StreamSound.R;
-import es.cruzalosdedos.fernandopalacios.StreamSound.adapters.AdapterFriend;
 import es.cruzalosdedos.fernandopalacios.StreamSound.adapters.SongAdapter;
-import es.cruzalosdedos.fernandopalacios.StreamSound.models.ModelFriend;
 import es.cruzalosdedos.fernandopalacios.StreamSound.models.ModelSong;
 
 public class FragmentSong extends Fragment {
     // DATASET SONGS : volley Api
     private ArrayList<ModelSong> mySongs;
-    private View viewActivity;
+    private View activityRoot;
+    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        
         // Inflate the layout for this fragment
-        viewActivity = inflater.inflate(R.layout.fragment_destacados, container, false);
-        return viewActivity;
+        activityRoot = inflater.inflate(R.layout.fragment_destacados, container, false);
+        recyclerView = (RecyclerView) activityRoot.findViewById( R.id.songs_recycleview);
+        recyclerView.setLayoutManager(  new LinearLayoutManager( getActivity() ) );
+        
+        return activityRoot;
     }
-
+    
+    
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -78,17 +82,9 @@ public class FragmentSong extends Fragment {
     }
 
     private void loadApiSongs(ArrayList<ModelSong> mySongs) {
-        
-        /*View view = LayoutInflater.from( container.getContext() ).inflate( R.layout.fragment_destacados, container, false );
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.songs_recycleview);*/
-
-        // RecyclerView recyclerView = (RecyclerView) getActivity().findViewById( R.id.songs_recycleview);
-
-        RecyclerView recyclerView = (RecyclerView) viewActivity.findViewById( R.id.songs_recycleview);
+        recyclerView.setItemAnimator( new DefaultItemAnimator() );
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter( new SongAdapter( mySongs, R.layout.recycleview_songs) );
-        recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ));
-        recyclerView.setItemAnimator( new DefaultItemAnimator() );
     }
 
     public ArrayList<ModelSong> parserApiSongs( JSONArray apiSongs ) throws JSONException{

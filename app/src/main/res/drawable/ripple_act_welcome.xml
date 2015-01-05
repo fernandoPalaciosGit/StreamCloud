@@ -3,7 +3,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/backgroun_access_shape"></solid>
+            <solid android:color="@color/accent"></solid>
         </shape>
     </item>
 </selector>

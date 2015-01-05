@@ -47,5 +47,6 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.+'
     
     // PARSE : notifications and database
-    compile files('libs/parse/Parse-1.8.0.jar')
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile fileTree(dir: 'libs/parse', include: 'Parse-*.jar')
 }

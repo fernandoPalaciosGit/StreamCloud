@@ -2,6 +2,7 @@
 <resources>
     <!-- material : size button standart -->
     <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_size_wellcome">80dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
